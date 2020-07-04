@@ -2,6 +2,7 @@ package edu.cs.uga.trophyteam;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,8 @@ import androidx.fragment.app.Fragment;
 
 public class FragmentExerciseCardioRunning extends Fragment {
 
+    private static final String TAG = "FragExerCarRun_Fragment";
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -23,45 +26,72 @@ public class FragmentExerciseCardioRunning extends Fragment {
 
 
 
-        /*Buttons*/
+
+        /* - - - Buttons - - - */
 
         //Advances user to Distance and Time Page
         Button nextButton = view.findViewById(R.id.cardio_button_next);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                try {
 
-                //Check if the exercise type is still entered (From parent activity of this fragment)
-                Spinner cardioExerciseType = getActivity().findViewById(R.id.spinner_options_cardio_type);
-                if (cardioExerciseType.getSelectedItemPosition() == 0){
-                    //If no exercise type selected, display toast
-                    Toast.makeText(getActivity(), "Please Select an Exercise Type!", Toast.LENGTH_SHORT).show();
-                    return;
+                    //If the Spinner input is not valid, return
+                    if (!(validSpinnerInput(view))) return;
+                    //Else, store Spinner values and send user to next Activity
+                    else {
+                        //Get chosen cardio exercise
+                        String exerciseString = ((Spinner) view.findViewById(R.id.cardio_spinner_exercise))
+                                .getSelectedItem().toString();
+
+                        //Get nickname String from TextView
+                        String nicknameString = ((EditText) view.findViewById(R.id.cardio_edittext_exercise_nickname))
+                                .getText().toString();
+
+                        //Instantiate intent and put exerciseString and nicknameString inside its extras
+                        Intent intent = new Intent(getActivity(), AddCardioExerciseDetailsActivity.class);
+                        intent.putExtra("ExerciseBundle", exerciseString);
+                        intent.putExtra("NicknameBundle", nicknameString);
+                        startActivity(intent);
+                    }
+                } catch (Exception e){
+                    Log.d(TAG, "Error: Could not send user to next activity!");
                 }
 
-                //Exercises Spinner
-                Spinner cardioExercisesSpinner = view.findViewById(R.id.cardio_spinner_exercise);
-
-                //Get chosen cardio exercise and check if an exercise has not been selected
-                String exerciseString = cardioExercisesSpinner.getSelectedItem().toString();
-                if (cardioExercisesSpinner.getSelectedItemPosition() == 0){
-                    //If no exercise selected, display Toast
-                    Toast.makeText(getActivity(), "Please Select an Exercise!", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                //Get nickname String from TextView
-                String nicknameString = ((EditText) view.findViewById(R.id.cardio_edittext_exercise_nickname))
-                        .getText().toString();
-
-                //Instantiate intent and put exerciseString and nicknameString inside its extras
-                Intent intent = new Intent(getActivity(), AddCardioExerciseDetailsActivity.class);
-                intent.putExtra("ExerciseBundle",exerciseString);
-                intent.putExtra("NicknameBundle",nicknameString);
-                startActivity(intent);
             }
         });
 
         return view;
+    }
+
+    /***
+     * Method that determines if the user has appropriately selected Spinner values in this fragment
+     * and the parent activity
+     * @param view The view that contains the Spinners used
+     * @return true if Spinner input is valid, false otherwise or if an exception occurs
+     */
+    public boolean validSpinnerInput(View view){
+        try {
+            //Check if the exercise type is still entered (From parent activity of this fragment)
+            Spinner cardioExerciseType = getActivity().findViewById(R.id.spinner_options_cardio_type);
+            if (cardioExerciseType.getSelectedItemPosition() == 0) {
+                //If no exercise type selected, display toast
+                Toast.makeText(getActivity(), "Please Select an Exercise Type!", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+
+            //Exercises Spinner
+            Spinner cardioExercisesSpinner = view.findViewById(R.id.cardio_spinner_exercise);
+            if (cardioExercisesSpinner.getSelectedItemPosition() == 0) {
+                //If no exercise selected, display Toast
+                Toast.makeText(getActivity(), "Please Select an Exercise!", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+
+            return true;
+        } catch (Exception e){
+            Log.d(TAG, "Error: Could not validate Spinner input!");
+            return false;
+        }
     }
 }
