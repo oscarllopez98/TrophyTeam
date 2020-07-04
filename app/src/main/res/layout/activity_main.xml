@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="30dp"
+    android:background="@color/colorPrimaryBackground"
+    tools:context=".MainActivity">
+
+    <!-- TITLE LOGIN -->
+    <TextView
+        android:id="@+id/title_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textAlignment="center"
+        android:textSize="50sp"
+        android:text="@string/title_login"/>
+
+    <!-- INPUT USERID -->
+    <EditText
+        android:id="@+id/input_userID"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/title_login"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/input_password"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="50dp"
+        android:maxLength="15"
+        android:inputType="text"
+        android:hint="@string/hint_userID"/>
+
+    <!-- INPUT PASSWORD -->
+    <EditText
+        android:id="@+id/input_password"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/input_userID"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/button_login"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:maxLength="16"
+        android:inputType="textPassword"
+        android:hint="@string/hint_password"/>
+
+    <!-- BUTTON SUBMIT -->
+    <Button
+        android:id="@+id/button_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintTop_toBottomOf="@+id/input_password"
+        app:layout_constraintRight_toLeftOf="@+id/button_register"
+        app:layout_constraintBottom_toTopOf="@+id/link_forgot_password"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:text="@string/button_login"/>
+
+    <!-- BUTTON REGISTER -->
+    <Button
+        android:id="@+id/button_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintTop_toBottomOf="@+id/input_password"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/link_forgot_password"
+        app:layout_constraintLeft_toRightOf="@+id/button_login"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:text="@string/button_register"/>
+
+    <!-- LINK FORGOT PASSWORD-->
+    <TextView
+        android:id="@+id/link_forgot_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@+id/button_login"
+        app:layout_constraintRight_toLeftOf="@+id/link_forgot_userID"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textColor="@color/colorBlack_Fade"
+        android:text="@string/link_forgot_password"/>
+
+    <!-- LINK FORGOT USERID -->
+    <TextView
+        android:id="@+id/link_forgot_userID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginTop="40dp"
+        app:layout_constraintTop_toBottomOf="@+id/button_login"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/link_forgot_password"
+        android:textColor="@color/colorBlack_Fade"
+        android:text="@string/link_forgot_userID"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

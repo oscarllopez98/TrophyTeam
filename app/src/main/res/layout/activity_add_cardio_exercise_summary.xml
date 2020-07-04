@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="30dp"
+    android:background="@color/colorPrimaryBackground">
+
+    <!-- Page Title -->
+    <TextView
+        android:id="@+id/title_add_exercise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textAlignment="center"
+        android:text="@string/exercise_add_exercise_cardio"
+        android:textSize="35sp"/>
+
+    <!-- Exercise Nickname -->
+    <TextView
+        android:id="@+id/summary_textview_exercise_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/title_add_exercise"
+        app:layout_constraintBottom_toTopOf="@+id/summary_textview_exercise_name"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textAllCaps="false"
+        android:text="@string/subtitles_nickname"
+        android:textSize="19sp"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/summary_textview_exercise_nickname_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/title_add_exercise"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/summary_textview_exercise_name_value"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textAllCaps="false"
+        android:text="@string/subtitles_placeholder_value"
+        android:textSize="19sp"
+        android:visibility="gone"/>
+
+    <!-- Exercise Name -->
+    <TextView
+        android:id="@+id/summary_textview_exercise_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/title_add_exercise"
+        app:layout_constraintBottom_toTopOf="@+id/summary_textview_exercise_distance_and_unit"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textAllCaps="false"
+        android:text="@string/subtitles_exercise"
+        android:textSize="19sp"/>
+    <TextView
+        android:id="@+id/summary_textview_exercise_name_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/title_add_exercise"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/summary_textview_exercise_distance_and_unit_value"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textAllCaps="false"
+        android:text="@string/subtitles_placeholder_value"
+        android:textSize="19sp"/>
+
+    <!-- Exercise Distance and Unit-->
+    <TextView
+        android:id="@+id/summary_textview_exercise_distance_and_unit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/summary_textview_exercise_name"
+        app:layout_constraintBottom_toTopOf="@+id/summary_textview_time"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textAllCaps="false"
+        android:text="@string/subtitles_distance"
+        android:textSize="19sp"/>
+    <TextView
+        android:id="@+id/summary_textview_exercise_distance_and_unit_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/summary_textview_exercise_name_value"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/summary_textview_time_value"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textAllCaps="false"
+        android:text="@string/subtitles_placeholder_value"
+        android:textSize="19sp"/>
+
+    <!-- Exercise Time -->
+    <TextView
+        android:id="@+id/summary_textview_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/summary_textview_exercise_distance_and_unit"
+        app:layout_constraintBottom_toTopOf="@+id/button_cancel"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textAllCaps="false"
+        android:text="@string/subtitles_time"
+        android:textSize="19sp"/>
+    <TextView
+        android:id="@+id/summary_textview_time_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/summary_textview_exercise_distance_and_unit_value"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/button_cancel"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textAllCaps="false"
+        android:text="@string/subtitles_placeholder_value"
+        android:textSize="19sp"/>
+
+    <!-- Cancel Button -->
+    <Button
+        android:id="@+id/button_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/summary_textview_time"
+        app:layout_constraintRight_toLeftOf="@+id/button_submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textAllCaps="false"
+        android:text="@string/button_cancel"/>
+    <!-- Submit Button -->
+    <Button
+        android:id="@+id/button_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/summary_textview_time"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/button_cancel"
+        android:textAllCaps="false"
+        android:text="@string/button_submit"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

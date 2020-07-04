@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorPrimaryBackground"
+    android:orientation="vertical">
+
+    <!-- Exercise Nickname -->
+    <TextView
+        android:id="@+id/recyclerview_row_exercise_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="@string/subtitles_placeholder_value"/>
+
+    <!-- Exercise Name -->
+    <TextView
+        android:id="@+id/recyclerview_row_exercise_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/recyclerview_row_exercise_nickname"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="@string/subtitles_placeholder_value"/>
+
+    <!-- Exercise Distance w/ Unit -->
+    <TextView
+        android:id="@+id/recyclerview_row_exercise_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/recyclerview_row_exercise_nickname"
+        app:layout_constraintRight_toLeftOf="@id/recyclerview_row_exercise_time"
+        android:text="@string/subtitles_placeholder_value"/>
+
+    <!-- Exercise Time (HH:MM:SS) -->
+    <TextView
+        android:id="@+id/recyclerview_row_exercise_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/recyclerview_row_exercise_distance"
+        android:text="@string/subtitles_placeholder_value"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

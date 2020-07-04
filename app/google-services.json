@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "825586238876",
+    "firebase_url": "https://trophyteam-499d9.firebaseio.com",
+    "project_id": "trophyteam-499d9",
+    "storage_bucket": "trophyteam-499d9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:825586238876:android:9fcf4db45a87f369857459",
+        "android_client_info": {
+          "package_name": "edu.cs.uga.trophyteam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "825586238876-69gocjct0m88ceto7v0v14s7vrrc5sv4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_jEPFrpP6GY1YaimVesf20b72wxsEMQI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "825586238876-69gocjct0m88ceto7v0v14s7vrrc5sv4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
