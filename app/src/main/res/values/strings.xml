@@ -113,7 +113,7 @@
     </string-array>
 
     <!-- Subtitles -->
-    <string name="subtitles_nickname">Nickname</string>
+    <string name="subtitles_nickname"><b>Nickname</b></string>
     <string name="subtitles_category"><b>Category</b></string>
     <string name="subtitles_exercise"><b>Exercise</b></string>
     <string name="subtitles_distance"><b>Distance</b></string>

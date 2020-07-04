@@ -34,8 +34,6 @@ public class FragmentExerciseCardioRunning extends Fragment {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-
                     //If the Spinner input is not valid, return
                     if (!(validSpinnerInput(view))) return;
                     //Else, store Spinner values and send user to next Activity
@@ -47,17 +45,17 @@ public class FragmentExerciseCardioRunning extends Fragment {
                         //Get nickname String from TextView
                         String nicknameString = ((EditText) view.findViewById(R.id.cardio_edittext_exercise_nickname))
                                 .getText().toString();
-
-                        //Instantiate intent and put exerciseString and nicknameString inside its extras
-                        Intent intent = new Intent(getActivity(), AddCardioExerciseDetailsActivity.class);
-                        intent.putExtra("ExerciseBundle", exerciseString);
-                        intent.putExtra("NicknameBundle", nicknameString);
-                        startActivity(intent);
+                        try {
+                            //Instantiate intent and put exerciseString and nicknameString inside its extras
+                            Intent intent = new Intent(getActivity(), AddCardioExerciseDetailsActivity.class);
+                            intent.putExtra("ExerciseBundle", exerciseString);
+                            intent.putExtra("NicknameBundle", nicknameString);
+                            startActivity(intent);
+                        } catch (Exception e){
+                            Log.d(TAG, "Error: Could not send user to next activity!");
+                            return;
+                        }
                     }
-                } catch (Exception e){
-                    Log.d(TAG, "Error: Could not send user to next activity!");
-                }
-
             }
         });
 

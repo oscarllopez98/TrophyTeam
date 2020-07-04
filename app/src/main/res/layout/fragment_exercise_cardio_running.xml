@@ -32,16 +32,33 @@
         android:dropDownWidth="wrap_content"
         android:spinnerMode="dropdown"/>
 
+    <!-- Nickname -->
+
+    <TextView
+        android:id="@+id/cardio_textview_exercise_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textAlignment="center"
+        android:text="@string/subtitles_nickname"/>
+
     <EditText
         android:id="@+id/cardio_edittext_exercise_nickname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/cardio_spinner_exercise"
+        android:maxLines="1"
+        android:lines="1"
+        android:singleLine="true"
+        app:layout_constraintVertical_bias="0.05"
+        app:layout_constraintTop_toBottomOf="@id/cardio_textview_exercise_nickname"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/cardio_button_next"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:hint="@string/hint_nickname"
-        android:maxLength="20"/>
+        android:maxLength="25"/>
 
     <!-- Next Button -->
     <Button
