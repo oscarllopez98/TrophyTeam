@@ -99,14 +99,34 @@ public class AddCardioExerciseDetailsActivity extends AppCompatActivity {
         NumberPicker numberPickerSeconds = findViewById(R.id.number_picker_seconds);
 
         //Distance values
-        int wholeNumber = numberPickerWhole.getValue();
-        int fractionNumber = numberPickerFraction.getValue();
-        int unit = numberPickerUnit.getValue();
+        int wholeNumber = 0;
+        int fractionNumber = 0;
+        int unit = 0;
+        try {
+            wholeNumber = numberPickerWhole.getValue();
+            fractionNumber = numberPickerFraction.getValue();
+            unit = numberPickerUnit.getValue();
+        } catch (NullPointerException e){
+            Log.d(TAG, "NullPointerException caught for Distance Values");
+            wholeNumber = 0;
+            fractionNumber = 0;
+            unit = 0;
+        }
 
         //Time values
-        int hoursNumber = numberPickerHours.getValue();
-        int minutesNumber = numberPickerMinutes.getValue();
-        int secondsNumber = numberPickerSeconds.getValue();
+        int hoursNumber = 0;
+        int minutesNumber = 0;
+        int secondsNumber = 0;
+        try {
+            hoursNumber = numberPickerHours.getValue();
+            minutesNumber = numberPickerMinutes.getValue();
+            secondsNumber = numberPickerSeconds.getValue();
+        } catch (NullPointerException e){
+            Log.d(TAG, "NullPointerException caught for Time Values");
+            hoursNumber = 0;
+            minutesNumber = 0;
+            secondsNumber = 0;
+        }
 
         //Convert values to a CardioExercise object
         CardioExercise newCardioExercise = convertToCardioExercise(wholeNumber, fractionNumber,

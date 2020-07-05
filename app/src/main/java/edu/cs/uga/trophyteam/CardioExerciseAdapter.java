@@ -43,17 +43,16 @@ public class CardioExerciseAdapter extends RecyclerView.Adapter<CardioExerciseAd
         }
     }
 
-    // Provide a suitable constructor (depends on the kind of dataset)
+    // Provide a suitable constructor (List<CardioExercise> for this Adapter)
     public CardioExerciseAdapter(List<CardioExercise> myDataset) {
         mDataset = new ArrayList<CardioExercise>();
         mDataset.addAll(myDataset);
-        Log.d(TAG, "Dataset Length: " + myDataset.size());
     }
 
     // Create new views (invoked by the layout manager)
     @Override
     public CardioExerciseAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        // create a new view
+        // create a new view (This creates a new row)
         View v = (View) LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.recyclerview_row_home_activity, parent, false);
         MyViewHolder vh = new MyViewHolder(v);
