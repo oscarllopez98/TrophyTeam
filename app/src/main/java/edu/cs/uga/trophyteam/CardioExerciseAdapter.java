@@ -69,10 +69,25 @@ public class CardioExerciseAdapter extends RecyclerView.Adapter<CardioExerciseAd
     public void onBindViewHolder(MyViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
+
+        //Display name of the Exercise Nickname
         holder.nicknameTextView.setText(mDataset.get(position).getExerciseNickname());
+        //Display name of the Exercise
         holder.nameTextView.setText(mDataset.get(position).getExerciseName());
-        holder.distanceTextView.setText(mDataset.get(position).distanceToStringSymbol());
-        holder.timeTextView.setText(mDataset.get(position).timeToString());
+        //If the user entered a distance and it's greater than 0, display the distance
+        if (mDataset.get(position).getDistance() > 0.0){
+            holder.distanceTextView.setText(mDataset.get(position).distanceToStringSymbol());
+        }
+        else {
+            holder.distanceTextView.setText("");
+        }
+        //If the user entered a time and it's greater than 0, display the distance
+        if (mDataset.get(position).getDurationHours() > 0.0 || mDataset.get(position).getDurationMinutes() > 0.0 || mDataset.get(position).getDurationSeconds() > 0.0){
+            holder.timeTextView.setText(mDataset.get(position).timeToString());
+        }
+        else {
+            holder.timeTextView.setText("");
+        }
     }
 
     // Return the size of your dataset (invoked by the layout manager)

@@ -63,10 +63,10 @@ public class FragmentExerciseCardioRunning extends Fragment {
     }
 
     /***
-     * Method that determines if the user has appropriately selected Spinner values in this fragment
-     * and the parent activity
+     * Method that determines if the user has appropriately selected Spinner values and entered a
+     * nickname value within this fragment and the parent activity
      * @param view The view that contains the Spinners used
-     * @return true if Spinner input is valid, false otherwise or if an exception occurs
+     * @return true if Spinner and EditText input is valid, false otherwise or if an exception occurs
      */
     public boolean validSpinnerInput(View view){
         try {
@@ -86,9 +86,17 @@ public class FragmentExerciseCardioRunning extends Fragment {
                 return false;
             }
 
+            //Check if there is a nickname entered for the exercise
+            EditText cardioExerciseNickname = view.findViewById(R.id.cardio_edittext_exercise_nickname);
+            if (cardioExerciseNickname.getText().toString().length() == 0){
+                Toast.makeText(getActivity(), "Please Type an Exercise Nickname!", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+
+            //Return true if all values are found successfully
             return true;
         } catch (Exception e){
-            Log.d(TAG, "Error: Could not validate Spinner input!");
+            Log.d(TAG, "Error: Could not validate Spinner or EditText input!");
             return false;
         }
     }

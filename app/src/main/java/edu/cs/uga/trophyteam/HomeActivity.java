@@ -81,15 +81,12 @@ public class HomeActivity extends AppCompatActivity {
                                 snapshot.getValue(CardioExercise.class).getExerciseName());
                     }
 
-                    //Uncomment this line for dividers
+                    //Uncomment this line for dividers between rows
                     //recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
 
                     // specify an adapter
                     mAdapter = new CardioExerciseAdapter(cardioExerciseList);
                     recyclerView.setAdapter(mAdapter);
-
-
-                    Log.d(TAG, "Cardio Exercise List Size: " + cardioExerciseList.size());
                 }
 
                 @Override
@@ -103,6 +100,10 @@ public class HomeActivity extends AppCompatActivity {
         }
         //Start Tester for Exercise Classes
         Tester.StartTestExerciseCardio();
+
+
+
+
     }
 
     /***
@@ -125,7 +126,16 @@ public class HomeActivity extends AppCompatActivity {
 
         switch (item.getItemId()){
             case R.id.action_add_exercise:
+                //Send user to add exercise page
                 startActivity(new Intent(HomeActivity.this, AddCardioExerciseActivity.class));
+                break;
+            case R.id.action_home:
+                //Send user to home page
+                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                break;
+            case R.id.action_logout:
+                //Sign current user out and return to login page
+                FirebaseAuth.getInstance().signOut();
                 break;
             default:
                 return super.onOptionsItemSelected(item);
