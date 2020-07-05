@@ -71,9 +71,7 @@ public class CardioExerciseAdapter extends RecyclerView.Adapter<CardioExerciseAd
         // - replace the contents of the view with that element
         holder.nicknameTextView.setText(mDataset.get(position).getExerciseNickname());
         holder.nameTextView.setText(mDataset.get(position).getExerciseName());
-        holder.distanceTextView.setText(mDataset.get(position).getDistance()
-                + " "
-                + mDataset.get(position).getMeasurementSystem());
+        holder.distanceTextView.setText(mDataset.get(position).distanceToStringSymbol());
         holder.timeTextView.setText(mDataset.get(position).timeToString());
     }
 

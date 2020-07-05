@@ -179,6 +179,26 @@ public class CardioExercise implements Parcelable {
                 getDurationHours(),getDurationMinutes(),getDurationSeconds());
     }
 
+    public String distanceToStringSymbol(){
+        String distanceString = "" + getDistance();
+        switch (getMeasurementSystem()){
+            case "Yards":
+                distanceString += " Yd";
+                break;
+            case "Miles":
+                distanceString += " Mi";
+                break;
+            case "Meters":
+                distanceString += " M";
+                break;
+            case "Kilometers":
+                distanceString += " Km";
+                break;
+
+        }
+        return distanceString;
+    }
+
     @Override
     public int describeContents() {
         return 0;

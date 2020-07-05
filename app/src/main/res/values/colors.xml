@@ -6,5 +6,9 @@
     <color name="colorPrimaryBackground">#FAF6F0</color>
     <color name="colorPrimaryText">#FAF6F0</color>
     <color name="colorSecondaryBackground">#57B3FC</color>
+    <color name="colorSecondaryText">#57B3FC</color>
+    <color name="colorBlack">#000000</color>
     <color name="colorBlack_Fade">#46000000</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorWhite_Fade">#DAFFFFFF</color>
 </resources>

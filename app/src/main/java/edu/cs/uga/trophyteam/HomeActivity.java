@@ -81,7 +81,8 @@ public class HomeActivity extends AppCompatActivity {
                                 snapshot.getValue(CardioExercise.class).getExerciseName());
                     }
 
-                    recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
+                    //Uncomment this line for dividers
+                    //recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
 
                     // specify an adapter
                     mAdapter = new CardioExerciseAdapter(cardioExerciseList);

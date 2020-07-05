@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryBackground"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorPrimaryBackground">
 
     <!-- Toolbar -->
     <androidx.appcompat.widget.Toolbar
@@ -25,9 +26,12 @@
         android:id="@+id/recyclerview_exercises"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layoutAnimation="@anim/layout_animation_fall_down"
+        android:scrollbars="vertical"
+        android:fadeScrollbars="true"
         app:layout_constraintTop_toBottomOf="@+id/my_toolbar"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
