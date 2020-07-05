@@ -58,6 +58,8 @@ public class AddCardioExerciseSummaryActivity extends AppCompatActivity {
                     mReference.setValue(getIntent().getParcelableExtra("BundleCardioExercise"));
                     mReference.child("exerciseID").setValue(mReference.getKey());
 
+                    startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+
                     //Confirmation Toast
                     Toast.makeText(AddCardioExerciseSummaryActivity.this, "New Exercise Added!",
                             Toast.LENGTH_SHORT).show();
@@ -91,24 +93,13 @@ public class AddCardioExerciseSummaryActivity extends AppCompatActivity {
         //Update the current TextView data
         exerciseName.setText(cardioExercise.getExerciseName());
         exerciseDistanceAndUnit.setText(cardioExercise.getDistance() + " " + cardioExercise.getMeasurementSystem());
-        exerciseTime.setText(
-                cardioExercise.getDurationHours() + " : "
-                + cardioExercise.getDurationMinutes() + " : "
-                + cardioExercise.getDurationSeconds()
-        );
+        exerciseTime.setText(cardioExercise.timeToString());
 
         //If there is a nickname set for the exercise display that
         if (cardioExercise.getExerciseNickname().length() > 3){
-            //Set layout constraints of TextViews
-
-            //Update visibility of nickname Textviews
-            TextView nicknameTextView = findViewById(R.id.summary_textview_exercise_nickname);
-            TextView nicknameTextViewValue = findViewById(R.id.summary_textview_exercise_name_value);
-
-            nicknameTextView.setVisibility(View.VISIBLE);
-            nicknameTextViewValue.setVisibility(View.VISIBLE);
 
             //Update value of nicknameValue TextView
+            TextView nicknameTextViewValue = findViewById(R.id.summary_textview_exercise_nickname_value);
             nicknameTextViewValue.setText(cardioExercise.getExerciseNickname());
         }
     }

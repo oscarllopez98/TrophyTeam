@@ -1,5 +1,6 @@
 package edu.cs.uga.trophyteam;
 
+import android.annotation.SuppressLint;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -52,6 +53,10 @@ public class CardioExercise implements Parcelable {
         this.measurementSystem = mS;
     }
 
+    /***
+     * Method for assisting the Parceling of a CardioExercise object so it can be placed into an Intent
+     * @param in
+     */
     protected CardioExercise(Parcel in) {
         exerciseID = in.readString();
         exerciseName = in.readString();
@@ -168,10 +173,10 @@ public class CardioExercise implements Parcelable {
      *
      * @return The string representation of time in HH:MM:SS format
      */
+    @SuppressLint("DefaultLocale")
     public String timeToString(){
-        return getDurationHours() + ":"
-                + getDurationMinutes() + ":"
-                + getDurationSeconds();
+        return String.format("%02d:%02d:%02d",
+                getDurationHours(),getDurationMinutes(),getDurationSeconds());
     }
 
     @Override

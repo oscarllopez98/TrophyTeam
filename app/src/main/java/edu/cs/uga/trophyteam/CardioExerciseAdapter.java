@@ -19,7 +19,7 @@ public class CardioExerciseAdapter extends RecyclerView.Adapter<CardioExerciseAd
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
-    public static class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public static class MyViewHolder extends RecyclerView.ViewHolder{
         // each data item's textview goes here
         public TextView nicknameTextView;
         public TextView nameTextView;
@@ -32,11 +32,14 @@ public class CardioExerciseAdapter extends RecyclerView.Adapter<CardioExerciseAd
             nameTextView = v.findViewById(R.id.recyclerview_row_exercise_name);
             distanceTextView = v.findViewById(R.id.recyclerview_row_exercise_distance);
             timeTextView = v.findViewById(R.id.recyclerview_row_exercise_time);
-        }
 
-        @Override
-        public void onClick(View v) {
-
+            //Set an OnClickListener for if a row/exercise is selected
+            v.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.d(TAG, "Adapter Positioning: " + getAdapterPosition());
+                }
+            });
         }
     }
 
@@ -57,7 +60,12 @@ public class CardioExerciseAdapter extends RecyclerView.Adapter<CardioExerciseAd
         return vh;
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
+    /***
+     * Replace the contents of a view (invoked by the layout manager. This is where the data for
+     * each row is edited/derived
+     * @param holder The MyViewHolder object that is the parents of the row views
+     * @param position The current position of the {@code mDataset}
+     */
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         // - get element from your dataset at this position
@@ -65,6 +73,7 @@ public class CardioExerciseAdapter extends RecyclerView.Adapter<CardioExerciseAd
         holder.nicknameTextView.setText(mDataset.get(position).getExerciseNickname());
         holder.nameTextView.setText(mDataset.get(position).getExerciseName());
         holder.distanceTextView.setText(mDataset.get(position).getDistance()
+                + " "
                 + mDataset.get(position).getMeasurementSystem());
         holder.timeTextView.setText(mDataset.get(position).timeToString());
     }

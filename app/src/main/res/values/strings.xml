@@ -128,6 +128,9 @@
     <string name="text_hours">Hours</string>
     <string name="text_minutes">Minutes</string>
     <string name="text_seconds">Seconds</string>
+    <string name="text_hours_letter">H</string>
+    <string name="text_minutes_letter">M</string>
+    <string name="text_seconds_letter">S</string>
 
     <!-- Buttons -->
     <string name="button_cancel">Cancel</string>

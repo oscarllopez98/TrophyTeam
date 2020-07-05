@@ -11,42 +11,47 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 public class AddCardioExerciseDetailsActivity extends AppCompatActivity {
 
     private static String TAG = "CarExerDet_Activity";
-
-    private String[] fractionArray = new String[]{"0","1/4","1/2","3/4"};
-    private String[] unitArray = new String[]{"-- --","Yards","Miles","Meters","Kilometers"};
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_cardio_exercise_details);
 
-        //Set NumberPicker info
-        setNumberPickers();
 
-        //TextView Buttons
+
+        /* - - - TextView Buttons - - - */
+        //User clicks to add distance
         final TextView addDistanceTextView = findViewById(R.id.number_pickers_distance_displayer);
         addDistanceTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 addDistanceTextView.setVisibility(View.GONE);
-                findViewById(R.id.number_picker_whole).setVisibility(View.VISIBLE);
-                findViewById(R.id.number_picker_fraction).setVisibility(View.VISIBLE);
-                findViewById(R.id.number_picker_unit).setVisibility(View.VISIBLE);
+
+                //Replace the Add Distance TextView with the Distance NumberPickers via Fragment
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment_add_exercise_details_distance, new FragmentAddCardioExerciseDetailsDistance());
+                transaction.addToBackStack(null);
+                transaction.commit();
             }
         });
 
+        //User clicks to add time
         final TextView addTimeTextView = findViewById(R.id.number_pickers_time_displayer);
         addTimeTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 addTimeTextView.setVisibility(View.GONE);
-                findViewById(R.id.number_picker_hours).setVisibility(View.VISIBLE);
-                findViewById(R.id.number_picker_minutes).setVisibility(View.VISIBLE);
-                findViewById(R.id.number_picker_seconds).setVisibility(View.VISIBLE);
+
+                //Replace the Add Time TextView with the Time NumberPickers via Fragment
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment_add_exercise_details_time, new FragmentAddCardioExerciseDetailsTime());
+                transaction.addToBackStack(null);
+                transaction.commit();
             }
         });
 
@@ -65,12 +70,9 @@ public class AddCardioExerciseDetailsActivity extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 //Get the values from each picker and create CardioExercise Object with the info
                 CardioExercise cardioExercise = createNewCardioExercise();
                 cardioExercise.setExerciseNickname(getIntent().getStringExtra("NicknameBundle"));
-
-                Log.d(TAG,""+cardioExercise.getExerciseNickname().length());
 
                 //Add the CardioExercise POJO to an Intent
                 Intent intent = new Intent(AddCardioExerciseDetailsActivity.this, AddCardioExerciseSummaryActivity.class);
@@ -82,6 +84,10 @@ public class AddCardioExerciseDetailsActivity extends AppCompatActivity {
         });
     }
 
+    /***
+     * Method that instantiates a CardioExercise object with discrete distance and time values
+     * @return cardioExercise The CardioExercise object created with discrete distance and time values
+     */
     private CardioExercise createNewCardioExercise(){
         //Pickers
         NumberPicker numberPickerWhole = findViewById(R.id.number_picker_whole);
@@ -109,6 +115,16 @@ public class AddCardioExerciseDetailsActivity extends AppCompatActivity {
         return newCardioExercise;
     }
 
+    /***
+     * Method that converts NumberPicker positions to discrete values for a CardioExercise object
+     * @param wN Position in the Whole Number NumberPicker
+     * @param fN Position in the Fraction Number NumberPicker
+     * @param unit Position in the Unit NumberPicker
+     * @param hN Position in the Hours Number NumberPicker
+     * @param mN Position in the Minutes Number NumberPicker
+     * @param sN Position in the Seconds Number NumberPicker
+     * @return cardioExercise The CardioExercise object that is created based on the parameters
+     */
     private CardioExercise convertToCardioExercise(int wN, int fN, int unit, int hN, int mN, int sN){
         //First, add the whole number (wN) to the total distance
         double totalDistance = wN;
@@ -163,36 +179,5 @@ public class AddCardioExerciseDetailsActivity extends AppCompatActivity {
         return cardioExercise;
     }
 
-    private void setNumberPickers(){
-        /********** NumberPickers *********/
-        NumberPicker numberPickerWhole = findViewById(R.id.number_picker_whole);
-        NumberPicker numberPickerFraction = findViewById(R.id.number_picker_fraction);
-        NumberPicker numberPickerUnit = findViewById(R.id.number_picker_unit);
 
-        numberPickerWhole.setMinValue(0);
-        numberPickerWhole.setMaxValue(30);
-        numberPickerWhole.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
-        numberPickerFraction.setMinValue(0);
-        numberPickerFraction.setMaxValue(fractionArray.length-1);
-        numberPickerFraction.setDisplayedValues(fractionArray);
-        numberPickerFraction.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
-        numberPickerUnit.setMinValue(0);
-        numberPickerUnit.setMaxValue(unitArray.length-1);
-        numberPickerUnit.setDisplayedValues(unitArray);
-        numberPickerUnit.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
-
-        NumberPicker numberPickerHours = findViewById(R.id.number_picker_hours);
-        NumberPicker numberPickerMinutes = findViewById(R.id.number_picker_minutes);
-        NumberPicker numberPickerSeconds = findViewById(R.id.number_picker_seconds);
-
-        numberPickerHours.setMinValue(0);
-        numberPickerHours.setMaxValue(23);
-        numberPickerHours.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
-        numberPickerMinutes.setMinValue(0);
-        numberPickerMinutes.setMaxValue(59);
-        numberPickerMinutes.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
-        numberPickerSeconds.setMinValue(0);
-        numberPickerSeconds.setMaxValue(59);
-        numberPickerSeconds.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
-    }
 }

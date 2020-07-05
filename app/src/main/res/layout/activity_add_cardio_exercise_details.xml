@@ -19,15 +19,16 @@
         android:text="@string/exercise_add_exercise_cardio"
         android:textSize="35sp"/>
 
-
-    <!-- Distance-Pickers-Displayer Button -->
+    <!-- Displayer TextViews -->
     <TextView
         android:id="@+id/number_pickers_distance_displayer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        app:layout_constraintTop_toBottomOf="@+id/title_add_exercise"
+        android:gravity="center"
+        app:layout_constraintVertical_bias=".35"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:text="@string/subtitles_add_distance"
         android:textAllCaps="false"/>
@@ -36,7 +37,8 @@
         android:id="@+id/number_pickers_time_displayer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:gravity="center"
+        app:layout_constraintVertical_bias=".65"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -44,70 +46,27 @@
         android:text="@string/subtitles_add_time"
         android:textAllCaps="false"/>
 
-    <!-- Distance Pickers -->
-    <NumberPicker
-        android:visibility="gone"
-        android:id="@+id/number_picker_whole"
+    <FrameLayout
+        android:id="@+id/fragment_add_exercise_details_distance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        app:layout_constraintTop_toBottomOf="@+id/title_add_exercise"
-        app:layout_constraintRight_toLeftOf="@+id/number_picker_fraction"
-        app:layout_constraintLeft_toLeftOf="parent"/>
-
-    <NumberPicker
-        android:visibility="gone"
-        android:id="@+id/number_picker_fraction"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        app:layout_constraintTop_toBottomOf="@+id/title_add_exercise"
-        app:layout_constraintRight_toLeftOf="@+id/number_picker_unit"
-        app:layout_constraintLeft_toRightOf="@+id/number_picker_whole"/>
-
-    <NumberPicker
-        android:visibility="gone"
-        android:id="@+id/number_picker_unit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        app:layout_constraintTop_toBottomOf="@+id/title_add_exercise"
+        app:layout_constraintVertical_bias=".25"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/number_picker_fraction"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
-    <!-- Time Pickers -->
-    <NumberPicker
-        android:visibility="gone"
-        android:id="@+id/number_picker_hours"
+    <FrameLayout
+        android:id="@+id/fragment_add_exercise_details_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        app:layout_constraintTop_toBottomOf="@+id/number_picker_whole"
-        app:layout_constraintRight_toLeftOf="@+id/number_picker_minutes"
-        app:layout_constraintLeft_toLeftOf="parent"/>
-
-    <NumberPicker
-        android:visibility="gone"
-        android:id="@+id/number_picker_minutes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        app:layout_constraintTop_toBottomOf="@+id/number_picker_whole"
-        app:layout_constraintRight_toLeftOf="@+id/number_picker_seconds"
-        app:layout_constraintLeft_toRightOf="@+id/number_picker_hours"/>
-
-    <NumberPicker
-        android:visibility="gone"
-        android:id="@+id/number_picker_seconds"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        app:layout_constraintTop_toBottomOf="@+id/number_picker_whole"
+        app:layout_constraintVertical_bias=".65"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/number_picker_minutes"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
 
     <!-- Bottom Navigation Buttons -->
-
     <Button
         android:id="@+id/cardio_button_prev"
         android:layout_width="wrap_content"
