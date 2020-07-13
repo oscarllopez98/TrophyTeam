@@ -45,6 +45,19 @@ public class HomeActivity extends AppCompatActivity {
         //Display existing, non completed exercises
         //TODO: Make a way to know if an exercise has been completed or not
 
+        setRecyclerView();
+
+
+        //Start Tester for Exercise Classes
+        Tester.StartTestExerciseCardio();
+
+
+    }
+
+    /***
+     * Method that sets up the RecyclerView and populates it with data
+     */
+    private void setRecyclerView(){
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview_exercises);
 
         //Use this setting to improve performance if you know that changes
@@ -76,7 +89,7 @@ public class HomeActivity extends AppCompatActivity {
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     //For each exercise, create an object and add it to the list
                     for (DataSnapshot snapshot: dataSnapshot.getChildren()){
-                        cardioExerciseList.add(snapshot.getValue(CardioExercise.class));
+                        cardioExerciseList.add(0,snapshot.getValue(CardioExercise.class));
                         Log.d(TAG, "Current CardioExercise Name: " +
                                 snapshot.getValue(CardioExercise.class).getExerciseName());
                     }
@@ -98,13 +111,8 @@ public class HomeActivity extends AppCompatActivity {
         } catch(Exception e){
             Log.d(TAG, "Something went wrong with exercise retrieval from Firebase");
         }
-        //Start Tester for Exercise Classes
-        Tester.StartTestExerciseCardio();
-
-
-
-
     }
+
 
     /***
      * Method that inflates the Primary Menu to the Toolbar

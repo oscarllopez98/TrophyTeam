@@ -14,7 +14,7 @@ public class FragmentAddCardioExerciseDetailsDistance extends Fragment {
 
     //NumberPicker values
     private String[] fractionArray = new String[]{"0","1/4","1/2","3/4"};
-    private String[] unitArray = new String[]{"-- --","Yards","Miles","Meters","Kilometers"};
+    private String[] unitArray = new String[]{"-- --","Yards","Miles","Meters","Kilometers","Laps"};
 
 
     @Nullable
@@ -37,7 +37,7 @@ public class FragmentAddCardioExerciseDetailsDistance extends Fragment {
         NumberPicker numberPickerUnit = view.findViewById(R.id.number_picker_unit);
 
         numberPickerWhole.setMinValue(0);
-        numberPickerWhole.setMaxValue(30);
+        numberPickerWhole.setMaxValue(100);
         numberPickerWhole.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
         numberPickerFraction.setMinValue(0);
         numberPickerFraction.setMaxValue(fractionArray.length-1);

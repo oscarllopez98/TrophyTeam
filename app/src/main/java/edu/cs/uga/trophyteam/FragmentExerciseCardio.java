@@ -31,17 +31,21 @@ public class FragmentExerciseCardio extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selectedCardioType = parent.getItemAtPosition(position).toString();
+
                 //Detect which Cardio Type was selected
+                FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
                 switch (selectedCardioType){
                     case "Running":
                         //If running was selected, display running options fragment
-                        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
                         transaction.replace(R.id.fragment_exercise_cardio_type, new FragmentExerciseCardioRunning());
                         transaction.addToBackStack(null);
                         transaction.commit();
                         break;
                     case "Swimming":
                         //If swimming was selected, display swimming options
+                        transaction.replace(R.id.fragment_exercise_cardio_type, new FragmentExerciseCardioSwimming());
+                        transaction.addToBackStack(null);
+                        transaction.commit();
                         break;
                     default:
                         Log.d(TAG, "Error: Nothing found for onItemClick (Spinner cardioTypeSpinner)");

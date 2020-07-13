@@ -181,6 +181,9 @@ public class AddCardioExerciseDetailsActivity extends AppCompatActivity {
             case 4:
                 unitString = "Kilometers";
                 break;
+            case 5:
+                unitString = "Laps";
+                break;
             default:
                 //No unit was found?
                 break;

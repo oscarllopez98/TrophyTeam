@@ -194,6 +194,9 @@ public class CardioExercise implements Parcelable {
             case "Kilometers":
                 distanceString += " Km";
                 break;
+            case "Laps":
+                distanceString += " Laps";
+                break;
 
         }
         return distanceString;

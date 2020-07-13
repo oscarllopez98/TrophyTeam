@@ -15,16 +15,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import java.util.Objects;
+public class FragmentExerciseCardioSwimming extends Fragment {
 
-public class FragmentExerciseCardioRunning extends Fragment {
-
-    private static final String TAG = "FragExerCarRun_Fragment";
+    private static final String TAG = "FragExerCarSwi_Fragment";
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        final View view = inflater.inflate(R.layout.fragment_exercise_cardio_running, container, false);;
+        final View view = inflater.inflate(R.layout.fragment_exercise_cardio_swimming, container, false);;
 
 
 
@@ -35,28 +33,28 @@ public class FragmentExerciseCardioRunning extends Fragment {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    //If the Spinner input is not valid, return
-                    if (!(validSpinnerInput(view))) return;
+                //If the Spinner input is not valid, return
+                if (!(validSpinnerInput(view))) return;
                     //Else, store Spinner values and send user to next Activity
-                    else {
-                        //Get chosen cardio exercise
-                        String exerciseString = ((Spinner) view.findViewById(R.id.cardio_spinner_exercise))
-                                .getSelectedItem().toString();
+                else {
+                    //Get chosen cardio exercise
+                    String exerciseString = ((Spinner) view.findViewById(R.id.cardio_spinner_exercise))
+                            .getSelectedItem().toString();
 
-                        //Get nickname String from TextView
-                        String nicknameString = ((EditText) view.findViewById(R.id.cardio_edittext_exercise_nickname))
-                                .getText().toString();
-                        try {
-                            //Instantiate intent and put exerciseString and nicknameString inside its extras
-                            Intent intent = new Intent(getActivity(), AddCardioExerciseDetailsActivity.class);
-                            intent.putExtra("ExerciseBundle", exerciseString);
-                            intent.putExtra("NicknameBundle", nicknameString);
-                            startActivity(intent);
-                        } catch (Exception e){
-                            Log.d(TAG, "Error: Could not send user to next activity!");
-                            return;
-                        }
+                    //Get nickname String from TextView
+                    String nicknameString = ((EditText) view.findViewById(R.id.cardio_edittext_exercise_nickname))
+                            .getText().toString();
+                    try {
+                        //Instantiate intent and put exerciseString and nicknameString inside its extras
+                        Intent intent = new Intent(getActivity(), AddCardioExerciseDetailsActivity.class);
+                        intent.putExtra("ExerciseBundle", exerciseString);
+                        intent.putExtra("NicknameBundle", nicknameString);
+                        startActivity(intent);
+                    } catch (Exception e){
+                        Log.d(TAG, "Error: Could not send user to next activity!");
+                        return;
                     }
+                }
             }
         });
 
