@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="5dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorPrimaryBackground">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorSecondaryBackground"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:titleTextColor="@color/colorPrimaryText"/>
+
+    <!-- CL: Row One (User info) -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/profile_row_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/my_toolbar"
+        app:layout_constraintBottom_toTopOf="@+id/profile_row_two">
+
+        <TableLayout
+            android:id="@+id/profile_table_user_info"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:stretchColumns="*">
+            <TableRow
+                android:id="@+id/profile_table_row"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="9">
+                <ImageView
+                    android:id="@+id/profile_profile_pic"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_column="0"
+                    android:layout_weight="4"/>
+                <TextView
+                    android:id="@+id/profile_name"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_column="1"
+                    android:text="@string/subtitles_placeholder_value"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:layout_weight="3"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/profile_details"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="10dp"
+                    android:layout_column="2"
+                    android:layout_weight="2">
+
+                    <TextView
+                        android:id="@+id/profile_username"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/profile_date_joined"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:text="@string/subtitles_placeholder_value"
+                        android:textAlignment="center"/>
+                    <TextView
+                        android:id="@+id/profile_date_joined"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_username"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/profile_birth_date"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:text="@string/subtitles_placeholder_value"
+                        android:textAlignment="center"/>
+                    <TextView
+                        android:id="@+id/profile_birth_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_date_joined"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:text="@string/subtitles_placeholder_value"
+                        android:textAlignment="center"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </TableRow>
+        </TableLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- CL: Row Two (Workouts Subtitle) -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/profile_row_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/profile_row_one"
+        app:layout_constraintBottom_toTopOf="@+id/profile_row_three">
+        <TextView
+            android:id="@+id/textview_subtitle_workouts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:text="@string/subtitles_placeholder_value"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- CL: Row Three (Workouts Selector Buttons) -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/profile_row_three"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/profile_row_two"
+        app:layout_constraintBottom_toTopOf="@+id/profile_row_four">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/profile_workouts_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+
+            app:layout_constraintLeft_toLeftOf="parent">
+            <Button
+                android:id="@+id/profile_button_completed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                app:layout_constraintRight_toLeftOf="@+id/profile_button_divider_one"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:text="@string/subtitles_placeholder_value"/>
+
+            <View
+                android:id="@+id/profile_button_divider_one"
+                android:layout_width="2dp"
+                android:layout_height="40dp"
+                android:background="@color/colorBlack_Fade"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/profile_button_in_progress"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/profile_button_completed"/>
+
+            <Button
+                android:id="@+id/profile_button_in_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toLeftOf="@+id/profile_button_saved"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/profile_button_completed"
+                android:text="@string/subtitles_placeholder_value"/>
+
+            <View
+                android:id="@+id/profile_button_divider_two"
+                android:layout_width="2dp"
+                android:layout_height="40dp"
+                android:background="@color/colorBlack_Fade"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/profile_button_saved"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/profile_button_in_progress"/>
+
+            <Button
+                android:id="@+id/profile_button_saved"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/profile_button_divider_two"
+                android:text="@string/subtitles_placeholder_value"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- CL: Row Four (Workouts Displayed) -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/profile_row_four"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/profile_row_three"
+        app:layout_constraintBottom_toTopOf="@+id/profile_row_five">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- CL: Row Five (Edit/Delete Profile) -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/profile_row_five"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/profile_row_four"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/profile_button_edit_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/profile_button_delete_profile"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:text="@string/subtitles_placeholder_value"/>
+        <Button
+            android:id="@+id/profile_button_delete_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/profile_button_edit_profile"
+            android:text="@string/subtitles_placeholder_value"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

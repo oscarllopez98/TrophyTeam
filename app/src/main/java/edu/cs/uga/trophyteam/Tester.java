@@ -16,7 +16,6 @@ public abstract class Tester {
         CardioExercise cardioExercise = new CardioExercise("Swim",
                 "Swimming FUN!", 1.3, 0, 30, 0, "Metric");
         logExercise(cardioExercise);
-        //Log.d(TAG, "Testing: ");
     }
 
     private static void logExercise(CardioExercise exercise){

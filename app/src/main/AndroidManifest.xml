@@ -25,6 +25,9 @@
         <activity android:name=".HomeActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
+        <activity android:name=".ProfileActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
         <activity android:name=".AddCardioExerciseActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>

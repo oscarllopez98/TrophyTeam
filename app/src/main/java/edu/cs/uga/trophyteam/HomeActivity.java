@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -133,6 +132,10 @@ public class HomeActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         switch (item.getItemId()){
+            case R.id.action_account:
+                //Send user to profile page
+                startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                break;
             case R.id.action_add_exercise:
                 //Send user to add exercise page
                 startActivity(new Intent(HomeActivity.this, AddCardioExerciseActivity.class));
@@ -144,6 +147,7 @@ public class HomeActivity extends AppCompatActivity {
             case R.id.action_logout:
                 //Sign current user out and return to login page
                 FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 break;
             default:
                 return super.onOptionsItemSelected(item);
