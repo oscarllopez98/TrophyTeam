@@ -138,7 +138,7 @@ public class HomeActivity extends AppCompatActivity {
                 break;
             case R.id.action_add_exercise:
                 //Send user to add exercise page
-                startActivity(new Intent(HomeActivity.this, AddCardioExerciseActivity.class));
+                startActivity(new Intent(getApplicationContext(), AddCardioExerciseActivity.class));
                 break;
             case R.id.action_home:
                 //Send user to home page

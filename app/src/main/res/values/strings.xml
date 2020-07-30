@@ -79,6 +79,11 @@
     <string name="text_minutes_letter">M</string>
     <string name="text_seconds_letter">S</string>
 
+    <!-- Selectors -->
+    <string name="selector_completed">Completed</string>
+    <string name="selector_in_progress">In Progress</string>
+    <string name="selector_saved">Saved</string>
+
     <!-- Buttons -->
     <string name="button_cancel">Cancel</string>
     <string name="button_next">Next</string>

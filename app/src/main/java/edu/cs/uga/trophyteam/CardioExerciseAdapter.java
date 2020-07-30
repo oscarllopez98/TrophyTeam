@@ -22,14 +22,12 @@ public class CardioExerciseAdapter extends RecyclerView.Adapter<CardioExerciseAd
     public static class MyViewHolder extends RecyclerView.ViewHolder{
         // each data item's textview goes here
         public TextView nicknameTextView;
-        public TextView nameTextView;
         public TextView distanceTextView;
         public TextView timeTextView;
 
         public MyViewHolder(View v) {
             super(v);
             nicknameTextView = v.findViewById(R.id.recyclerview_row_exercise_nickname);
-            nameTextView = v.findViewById(R.id.recyclerview_row_exercise_name);
             distanceTextView = v.findViewById(R.id.recyclerview_row_exercise_distance);
             timeTextView = v.findViewById(R.id.recyclerview_row_exercise_time);
 
@@ -72,8 +70,6 @@ public class CardioExerciseAdapter extends RecyclerView.Adapter<CardioExerciseAd
 
         //Display name of the Exercise Nickname
         holder.nicknameTextView.setText(mDataset.get(position).getExerciseNickname());
-        //Display name of the Exercise
-        holder.nameTextView.setText(mDataset.get(position).getExerciseName());
         //If the user entered a distance and it's greater than 0, display the distance
         if (mDataset.get(position).getDistance() > 0.0){
             holder.distanceTextView.setText(mDataset.get(position).distanceToStringSymbol());
